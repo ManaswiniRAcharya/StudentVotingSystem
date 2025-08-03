@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>Online Voting System Registration</title>
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <style>
+        #loginbtn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            color: #030303;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #loginbtn:hover {
+            background-color: #030303;
+            color: white;
+        }
+    </style>
+    <script>
+        // JavaScript for form validation
+        function validateForm() {
+            const name = document.forms["registerForm"]["name"].value.trim();
+            const mobile = document.forms["registerForm"]["mobile"].value.trim();
+            const password = document.forms["registerForm"]["password"].value;
+            const cpassword = document.forms["registerForm"]["cpassword"].value;
+
+            // Name validation
+            if (name === "") {
+                alert("Name is required.");
+                return false;
+            }
+
+            // Mobile number validation
+            if (!/^\d{10}$/.test(mobile)) {
+                alert("Mobile number must be exactly 10 digits.");
+                return false;
+            }
+
+            // Password validation
+            if (password === "") {
+                alert("Password is required.");
+                return false;
+            }
+
+            if (password !== cpassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            return true; // Submit the form if everything is valid
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <div id="headerSection" style="background-color: #123458; color: #FFFFFF; padding: 10px;">
+            <h1>STUDENT ELECTION PORTAL</h1>
+        </div>
+        <hr>
+        <div id="bodySection">
+            <form name="registerForm" action="../api/register.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <h2>Registration</h2>
+                <input type="text" name="name" placeholder="Enter Name"><br><br>
+                <input type="text" name="mobile" placeholder="Enter Mobile"><br><br>
+                <input type="password" name="password" placeholder="Password"><br><br>
+                <input type="password" name="cpassword" placeholder="Confirm Password"><br><br>
+                <input type="file" name="photo" style="width: 27%;"><br><br>
+                <select name="role" style="width: 27%;">
+                    <option value="1">Voter</option>
+                    <option value="2">Candidate</option>
+                </select><br><br>
+                <button id="registerbtn" type="submit" style="width: 27%;">Register</button>
+            </form>
+        </div>
+        <b><a id="loginbtn" href="../index.html">LOGIN</a></b>
+    </center>
+</body>
+</html>

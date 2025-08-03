@@ -1,0 +1,39 @@
+<html>
+<head>
+    <!-- Page title -->
+    <title>Online Voting System</title>
+    
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+<body>
+    <!-- Center all content -->
+    <center>
+        <!-- Header section with portal title -->
+        <div id="headerSection">
+            <h1>STUDENT ELECTION PORTAL</h1>
+        </div>
+        <hr> <!-- Horizontal line to separate header -->
+        
+        <!-- Body section containing the login form -->
+        <div id="bodySection">
+            <form action="api/login.php" method="post"> <!-- Form submission to login API -->
+                <h2>Login</h2>
+                <!-- Input for mobile number -->
+                <input type="number" name="mobile" placeholder="Enter Mobile"><br><br>
+                <!-- Input for password -->
+                <input type="password" name="password" placeholder="Enter Password"><br><br>
+                <!-- Dropdown to select user role -->
+                <select name="role">
+                    <option value="1">Voter</option>
+                    <option value="2">Candidate</option>
+                </select><br><br>
+                <!-- Submit button for login -->
+                <button type="submit">Login</button><br><br>
+                <!-- Link to registration page for new users -->
+                New user? <a href="routes/register.html">Register here</a>
+            </form>
+        </div>
+    </center>
+</body>
+</html>
